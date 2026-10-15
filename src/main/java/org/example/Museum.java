@@ -14,7 +14,10 @@ import java.util.Scanner;
 
 public class Museum {
     public static void main(String[] args) {
+        // Создаём Scanner для чтения входных данных из консоли.
         Scanner scanner = new Scanner(System.in);
+        // Массив из 1440 элементов (количество минут в сутках) будем заполнять значениями
+        // для определения макс. числа посетителей
         int[] visitors = new int[1440];
         int amount = scanner.nextInt();
         int[][] time = readTime(amount, scanner);
@@ -24,6 +27,7 @@ public class Museum {
 
     }
 
+    // Ищем максимальное число посетителей
     private static int findMax(int[] visitors) {
         int max = 0;
         for(int count: visitors) {
@@ -34,6 +38,7 @@ public class Museum {
         return max;
     }
 
+    // Заполняем массив для определения промежутков прибывания посетителей в музее
     private static void fillVisitors(int[] visitors, int[][] time) {
         for (int[] ints : time) {
             int firstStart = ints[0];
@@ -44,6 +49,7 @@ public class Museum {
         }
     }
 
+    // Считываем время прихода и ухода
     private static int[][] readTime(int amount, Scanner scanner) {
         int count = 0;
         int[][] times = new int[amount][2];
@@ -59,6 +65,7 @@ public class Museum {
         return times;
     }
 
+    // Переводим часы и минуты к минутам
     private static int toMinutes(String time) {
         int minutesInHour = 60;
         String[] parts = time.split(":");

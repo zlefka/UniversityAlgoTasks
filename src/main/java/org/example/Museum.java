@@ -30,8 +30,8 @@ public class Museum {
     // Ищем максимальное число посетителей
     private static int findMax(int[] visitors) {
         int max = 0;
-        for(int count: visitors) {
-            if(count > max) {
+        for (int count : visitors) {
+            if (count > max) {
                 max = count;
             }
         }
@@ -53,7 +53,7 @@ public class Museum {
     private static int[][] readTime(int amount, Scanner scanner) {
         int count = 0;
         int[][] times = new int[amount][2];
-        while(count < amount) {
+        while (count < amount) {
             String arrival = scanner.next();
             int start = toMinutes(arrival);
             String departure = scanner.next();
